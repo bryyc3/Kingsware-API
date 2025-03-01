@@ -21,7 +21,8 @@ const transporter = nodemailer.createTransport({
 app.use(express.json());
 app.use(cors({
     origin: process.env.ORIGIN_ADDRESS,
-    credentials: true
+    credentials: true,
+    allowedHeaders: ['Content-Type']
 }));
 
 app.use(express.json());
