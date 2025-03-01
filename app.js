@@ -1,6 +1,5 @@
 import express from 'express';
 import dotenv from 'dotenv';
-import cors from 'cors';
 import nodemailer from 'nodemailer';
 dotenv.config();
 
@@ -17,17 +16,10 @@ const transporter = nodemailer.createTransport({
     }
 })
 
-
 app.use(express.json());
-app.use(cors({
-    origin: process.env.ORIGIN_ADDRESS,
-    credentials: true,
-    allowedHeaders: ['Content-Type']
-}));
+app.use(express.static('dist'));
 
-app.use(express.json());
-
-app.post('/email', (req, res)=>{
+app.post('/api/email', (req, res)=>{
     const emailDetails = req.body;
     const mailOptions = {
         from: emailDetails.email,
