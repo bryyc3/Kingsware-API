@@ -26,7 +26,7 @@ app.use(cors({
 
 app.use(express.json());
 
-app.post('/', (req, res)=>{
+app.post('/email', (req, res)=>{
     const emailDetails = req.body;
     const mailOptions = {
         from: emailDetails.email,
