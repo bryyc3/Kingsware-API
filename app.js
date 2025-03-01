@@ -17,6 +17,7 @@ const transporter = nodemailer.createTransport({
 })
 
 app.use(express.json());
+app.use(express.static('dist'));
 
 app.post('/api/email', (req, res)=>{
     const emailDetails = req.body;
