@@ -1,5 +1,6 @@
 import express from 'express';
 import dotenv from 'dotenv';
+import cors from 'cors';
 import nodemailer from 'nodemailer';
 dotenv.config();
 
@@ -16,6 +17,10 @@ const transporter = nodemailer.createTransport({
     }
 })
 
+app.use(cors({
+    origin: 'https://kingsware.dev',
+    credentials: true,
+}));
 app.use(express.json());
 app.use(express.static('dist'));
 
